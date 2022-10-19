@@ -2,13 +2,16 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/home.css" />" />
+	<title>To Do</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+	<header>
+		<h1>TODO it!</h1>
+	</header>
+	<form class="inputBox shadow">
+		<input name="todo" placeholder="Type what you have to do" maxlength="20" required />
+		<button>+</button>
+	</form>
 </body>
 </html>
