@@ -9,7 +9,7 @@
 	<header>
 		<h1>TODO it!</h1>
 	</header>
-	<form class="inputBox shadow">
+	<form class="inputBox shadow" action="/todo/create">
 		<input name="todo" placeholder="Type what you have to do" maxlength="20" required />
 		<button>+</button>
 	</form>

@@ -23,6 +23,11 @@
 	
 	<context:component-scan base-package="com.server.todo" />
 	
-	
+	<beans:bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<beans:property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<beans:property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<beans:property name="user" value="scott" />
+		<beans:property name="password" value="tiger" />
+	</beans:bean>
 	
 </beans:beans>
