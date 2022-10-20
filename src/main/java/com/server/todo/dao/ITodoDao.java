@@ -6,5 +6,6 @@ import com.server.todo.dto.TodoDto;
 
 public interface ITodoDao {
 	int todoInsert(TodoDto todoDto);
-	List<TodoDto> todoSelect();
+	List<TodoDto> todosSelect();
+	int todosDelete();
 }

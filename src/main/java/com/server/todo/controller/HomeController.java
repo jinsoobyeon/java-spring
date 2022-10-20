@@ -20,7 +20,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() {
-		ArrayList<String> todos = todoService.todoSearch();
+		ArrayList<String> todos = todoService.todosSearch();
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("todos", todos);
@@ -40,4 +40,14 @@ public class HomeController {
 		}
 	}
 	
+	@RequestMapping("/delete")
+	public String deleteTodos() {
+		int result = todoService.todosRemove();
+		
+		if (result == 1) {
+			return "redirect:/";
+		} else {
+			return "redirect:/";
+		}
+	}
 }

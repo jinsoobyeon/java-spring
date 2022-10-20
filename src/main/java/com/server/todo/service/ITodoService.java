@@ -6,5 +6,6 @@ import com.server.todo.dto.TodoDto;
 
 public interface ITodoService {
 	int todoRegister(TodoDto todoDto);
-	ArrayList<String> todoSearch();
+	ArrayList<String> todosSearch();
+	int todosRemove();
 }

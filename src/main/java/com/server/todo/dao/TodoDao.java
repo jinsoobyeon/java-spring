@@ -29,7 +29,7 @@ public class TodoDao implements ITodoDao {
 	}
 
 	@Override
-	public List<TodoDto> todoSelect() {
+	public List<TodoDto> todosSelect() {
 		final String sql = "SELECT * FROM todos";
 		
 		return template.query(sql, new RowMapper<TodoDto>() {
@@ -41,5 +41,12 @@ public class TodoDao implements ITodoDao {
 				return todo;
 			}
 		});
+	}
+
+	@Override
+	public int todosDelete() {
+		final String sql = "DELETE FROM todos";
+		
+		return template.update(sql);
 	}
 }

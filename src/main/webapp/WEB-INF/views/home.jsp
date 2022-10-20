@@ -22,7 +22,7 @@
 			</c:forEach>
 		</ul>
 	</section>
-	<form>
+	<form action="/todo/delete">
 		<button class="clearAllBtn">Clear All</button>
 	</form>
 </body>

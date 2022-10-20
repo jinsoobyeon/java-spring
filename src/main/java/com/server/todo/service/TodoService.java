@@ -21,14 +21,19 @@ public class TodoService implements ITodoService {
 	}
 
 	@Override
-	public ArrayList<String> todoSearch() {
+	public ArrayList<String> todosSearch() {
 		ArrayList<String> todos = new ArrayList<String>();
 	
-		List<TodoDto> todoSelect = todoDao.todoSelect();
+		List<TodoDto> todoSelect = todoDao.todosSelect();
 		for (int i = 0; i < todoSelect.size(); i++) {
 			todos.add(todoSelect.get(i).getTodo());
 		}
 		
 		return todos;
+	}
+
+	@Override
+	public int todosRemove() {
+		return todoDao.todosDelete();
 	}
 }
