@@ -13,7 +13,7 @@ h1 {
 
 input {
 	width: 200px;
-	height: 50px;
+	height: 100%;
 }
 
 input:focus {
@@ -22,12 +22,26 @@ input:focus {
 
 button {
 	border-style: groove;
-	float: right;
-	background: linear-gradient(to right, #6478FB, #8763FB);
-	width: 3rem;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+	margin-top: 0px;
+	text-align: left;
+}
+
+li {
 	height: 50px;
-	border-radius: 0 5px 5px 0;
-	color: white;
+	line-height: 50px;
+	margin: 0.5rem 0;
+	padding: 0 0.9rem;
+	background: white;
+	border-redius: 5px;
+}
+
+.shadow {
+	box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
 }
 
 .inputBox {
@@ -41,6 +55,20 @@ button {
 	font-size: 0.9rem;
 }
 
-.shadow {
-	box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
+.addBtn {
+	float: right;
+	background: linear-gradient(to right, #6478FB, #8763FB);
+	width: 3rem;
+	height: 100%;
+	border-radius: 0 5px 5px 0;
+	color: white;
+}
+
+.clearAllBtn {
+	color: #e20303;
+	width: 8.5rem;
+	height: 50px;
+	background-color: white;
+	border-radius: 5px;
+	margin: 0 auto;
 }
