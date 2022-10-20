@@ -4,6 +4,23 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/home.css" />" />
 	<title>To Do</title>
+	<style>
+		ul {
+			list-style-type: none;
+			padding-left: 0px;
+			margin-top: 0px;
+			text-align: left;
+		}
+
+		li {
+			height: 50px;
+			line-height: 50px;
+			margin: 0.5rem 0;
+			padding: 0 0.9rem;
+			background: white;
+			border-redius: 5px;
+		}
+	</style>
 </head>
 <body>
 	<header>
@@ -16,7 +33,7 @@
 	<section>
 		<ul>
 			<c:forEach items="${todos}" var="todo">
-				<li>
+				<li class="shadow">
 					${todo}
 				</li>
 			</c:forEach>
