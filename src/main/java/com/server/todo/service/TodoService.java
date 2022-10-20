@@ -1,5 +1,8 @@
 package com.server.todo.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +19,16 @@ public class TodoService implements ITodoService {
 	public int todoRegister(TodoDto todoDto) {
 		return todoDao.todoInsert(todoDto);
 	}
+
+	@Override
+	public ArrayList<String> todoSearch() {
+		ArrayList<String> todos = new ArrayList<String>();
 	
+		List<TodoDto> todoSelect = todoDao.todoSelect();
+		for (int i = 0; i < todoSelect.size(); i++) {
+			todos.add(todoSelect.get(i).getTodo());
+		}
+		
+		return todos;
+	}
 }

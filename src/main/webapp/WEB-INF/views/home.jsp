@@ -13,5 +13,14 @@
 		<input name="todo" placeholder="Type what you have to do" maxlength="20" required />
 		<button>+</button>
 	</form>
+	<section>
+		<ul>
+			<c:forEach items="${todos}" var="todo">
+				<li>
+					${todo}
+				</li>
+			</c:forEach>
+		</ul>
+	</section>
 </body>
 </html>
