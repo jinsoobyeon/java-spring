@@ -20,6 +20,12 @@ public class TodoService implements ITodoService {
 
 	@Override
 	public int todoRegister(TodoDto todoDto) {
+		for (String todo : this.todosSearch()) {
+			if (todo.equals(todoDto.getTodo())) {
+				return 0;
+			}
+		}
+		
 		return todoDao.todoInsert(todoDto);
 	}
 
