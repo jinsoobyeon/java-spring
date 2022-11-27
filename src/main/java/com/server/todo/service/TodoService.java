@@ -1,6 +1,5 @@
 package com.server.todo.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -20,8 +19,8 @@ public class TodoService implements ITodoService {
 
 	@Override
 	public int todoRegister(TodoDto todoDto) {
-		for (String todo : this.todosSearch()) {
-			if (todo.equals(todoDto.getTodo())) {
+		for (TodoDto todo : this.todosSearch()) {
+			if (todo.getTodo().equals(todoDto.getTodo())) {
 				return 0;
 			}
 		}
@@ -30,15 +29,8 @@ public class TodoService implements ITodoService {
 	}
 
 	@Override
-	public ArrayList<String> todosSearch() {
-		ArrayList<String> todos = new ArrayList<String>();
-	
-		List<TodoDto> todoSelect = todoDao.todosSelect();
-		for (int i = 0; i < todoSelect.size(); i++) {
-			todos.add(todoSelect.get(i).getTodo());
-		}
-		
-		return todos;
+	public List<TodoDto> todosSearch() {
+		return todoDao.todosSelect();
 	}
 
 	@Override

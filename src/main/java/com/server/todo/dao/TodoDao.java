@@ -23,20 +23,21 @@ public class TodoDao implements ITodoDao {
 
 	@Override
 	public int todoInsert(TodoDto todoDto) {
-		final String sql = "INSERT INTO todos (todo) values (?)";
+		final String sql = "INSERT INTO todos (id, todo) values (sequence.NEXTVAL, ?)";
 		
 		return template.update(sql, todoDto.getTodo());
 	}
 
 	@Override
 	public List<TodoDto> todosSelect() {
-		final String sql = "SELECT * FROM todos";
+		final String sql = "SELECT * FROM todos ORDER BY id";
 		
 		return template.query(sql, new RowMapper<TodoDto>() {
 			
 			@Override
 			public TodoDto mapRow(ResultSet resultSet, int rowNumber) throws SQLException {
 				TodoDto todo = new TodoDto();
+				todo.setId(resultSet.getInt("id"));
 				todo.setTodo(resultSet.getString("todo"));
 				return todo;
 			}
