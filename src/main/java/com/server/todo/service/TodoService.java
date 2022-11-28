@@ -33,6 +33,12 @@ public class TodoService implements ITodoService {
 		return todoDao.todosSelect();
 	}
 
+	
+	@Override
+	public int todoRemove(TodoDto todoDto) {
+		return todoDao.todoDelete(todoDto);
+	}
+
 	@Override
 	public int todosRemove() {
 		return todoDao.todosDelete();

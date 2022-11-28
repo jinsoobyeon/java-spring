@@ -45,6 +45,13 @@ public class TodoDao implements ITodoDao {
 	}
 
 	@Override
+	public int todoDelete(TodoDto todoDto) {
+		final String sql = "DELETE FROM todos WHERE id = ?";
+		
+		return template.update(sql, todoDto.getId());
+	}
+
+	@Override
 	public int todosDelete() {
 		final String sql = "DELETE FROM todos";
 		
