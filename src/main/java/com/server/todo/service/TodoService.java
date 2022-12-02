@@ -18,14 +18,18 @@ public class TodoService implements ITodoService {
 	}
 
 	@Override
-	public int todoRegister(TodoDto todoDto) {
+	public TodoDto todoRegister(TodoDto todoDto) {
 		for (TodoDto todo : this.todosSearch()) {
 			if (todo.getTodo().equals(todoDto.getTodo())) {
-				return 0;
+				return new TodoDto();
 			}
 		}
 		
-		return todoDao.todoInsert(todoDto);
+		if (todoDao.todoInsert(todoDto) == 1) {
+			return todoDao.todoSelect(todoDto).get(0);
+		}
+		
+		return new TodoDto();
 	}
 
 	@Override

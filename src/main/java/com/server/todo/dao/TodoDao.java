@@ -29,6 +29,22 @@ public class TodoDao implements ITodoDao {
 	}
 
 	@Override
+	public List<TodoDto> todoSelect(TodoDto todoDto) {
+		final String sql = "SELECT * FROM todos WHERE todo = ?";
+		
+		return template.query(sql, new RowMapper<TodoDto>() {
+			
+			@Override
+			public TodoDto mapRow(ResultSet resultSet, int rowNumber) throws SQLException {
+				TodoDto todo = new TodoDto();
+				todo.setId(resultSet.getInt("id"));
+				todo.setTodo(resultSet.getString("todo"));
+				return todo;
+			}
+		}, todoDto.getTodo());
+	}
+
+	@Override
 	public List<TodoDto> todosSelect() {
 		final String sql = "SELECT * FROM todos ORDER BY id";
 		

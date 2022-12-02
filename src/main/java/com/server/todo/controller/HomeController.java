@@ -31,7 +31,7 @@ public class HomeController {
 	
 	@PostMapping("/create")
 	@ResponseBody
-	public int createTodo(@RequestBody TodoDto todoDto) {
+	public TodoDto createTodo(@RequestBody TodoDto todoDto) {
 		return todoService.todoRegister(todoDto);
 	}
 	
